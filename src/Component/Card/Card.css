@@ -1,0 +1,89 @@
+.view{
+    display: flex;
+    flex-direction: column;
+    background: whitesmoke;
+    align-items: center;
+}
+.car-price{
+    color: orange;
+    font-size: 25px;
+    font-weight: 700;
+}
+.log{
+    font-size: 50px;
+    font-weight: 900;
+    font-family: 'Gabriela', serif;
+    letter-spacing: 3px;
+    margin-left: 20px;
+}
+.card{
+    display: flex;
+    flex-direction: row;
+    margin-top: 100px;
+    background: white;
+    margin-left: 30px;
+   height:fit-content;
+   border-radius: 5px;
+   width: 850px;
+   gap: 30px;
+}
+.img img{
+height: 200px;
+border-radius: 10px;
+align-items: center;
+justify-content: center;
+margin: 30px;
+}
+.sub-card{
+    margin-top: 50px;
+}
+.by{
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    margin-top: 15px;
+}
+.lin{
+    height: 2px ;
+    width: 300px;
+    background: rgb(185, 185, 185);
+    margin-left: 40px;
+    margin-top: 15px;
+}
+.no{
+    margin-left: 80px;
+}
+.no1{
+    margin-left: 70px;
+}
+.no2{
+    margin-left: 133px;
+}
+.no3{
+    margin-left: 90px;
+}
+.no4{
+    margin-left: 95px;
+}
+.no5{
+    margin-left: 95px;
+}
+.no6{
+    margin-left: 105px;
+}
+.no7{
+    margin-left: 55px;
+}
+.toggle p{
+margin-top: 10px;
+margin-left: 150px;
+font-size: 15px;
+font-weight: 800;
+height: fit-content;
+width: fit-content;
+color: navy;
+background:rgb(167, 167, 255);
+padding: 5px;
+border-radius: 5px;
+cursor: pointer;
+}

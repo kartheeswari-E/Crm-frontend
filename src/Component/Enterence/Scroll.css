@@ -1,0 +1,72 @@
+.scrol-container{
+    height:90px;
+    width: 100%;
+    background: rgb(188, 181, 255);
+}
+.scrol-container-1{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    height:100px;
+    width: 100%;
+    background: rgb(255, 255, 255);
+}
+.services-logo, .location-logo, .time-logo{
+display: flex;
+flex-direction: row;
+margin-top: 40px;
+margin-left: 30px;
+font-size: 20px;
+font-weight: 500;
+}
+.button-cont{
+    display: flex;
+    flex-direction: row;
+    margin-top: 40px;
+    margin-left:400px;
+}
+.butt{
+    height: 30px;
+    width: 150px;
+    color: white;
+    border: none;
+    background: navy;
+    border-radius: 6px;
+    margin-left: 30px;
+    cursor: pointer;
+}
+.location-logo, .time-logo{
+    margin-left: 50px;
+}
+.services-name, .location-name, .time-name{
+margin-left: 10px;
+}
+.edit{
+    color:navy;
+    width:2rem !important;
+    height:2rem !important;
+}
+.time-name{
+position: absolute;
+top: 120px;
+left: 540px;
+}
+.para{
+    margin-top: 20px;
+    color: rgb(130, 129, 129);
+    font-size: 15px;
+    position: absolute; 
+    left: 550px;
+}
+.whole-cont{
+width: 100%;
+height: fit-content;
+display: flex;
+flex-wrap: wrap;
+justify-content:center;
+gap: 30px;
+align-items: center;
+ padding-top: 30px;  
+
+}
