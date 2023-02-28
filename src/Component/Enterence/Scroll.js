@@ -11,7 +11,7 @@ function Scroll() {
  
   const [car, setcar] = useState([]);
   useEffect(() =>{
-   fetch(`${process.env.REACT_APP_BASE_UR}/car/allcar`)
+   fetch(`${process.env.REACT_APP_BASE_URL}/car/allcar`)
       .then((data) => data.json())
       .then((cars) => setcar(cars));
   }, []);
