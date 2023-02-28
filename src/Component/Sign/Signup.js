@@ -19,7 +19,7 @@ fetch(`${process.env.REACT_APP_BASE_URL}/createuser`, {
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
-        },
+        }, 
       }).then((res) => {
         if (res.status === 201) {
           window.alert("successfully registered");

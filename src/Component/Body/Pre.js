@@ -3,12 +3,38 @@ import '../Body/Pre.css'
 import { useNavigate } from 'react-router-dom';
 import ShutterSpeedIcon from '@mui/icons-material/ShutterSpeed';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import StripeCheckout from 'react-stripe-checkout';
 import EmojiTransportationIcon from '@mui/icons-material/EmojiTransportation';
 function Pre({data,id}) {
    const navigate = useNavigate();
-
+   const makePayment=(token)=>{
+    const body={
+      token,
+      data
+    }
+    const headers={
+      "Content-Type":"application/json"
+    }
+    return fetch(`${process.env.REACT_APP_BASE_UR}/payment`,{
+      method:"POST",
+      headers,
+      body:JSON.stringify(body)
+    })
+    .then((response)=>{
+      console.log(response);
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+    }
   return<>
-  
+  <StripeCheckout
+  stripeKey={process.env.PUBLIC_KEY}
+  token={makePayment}  
+name={data.car_name}
+ amount={data.car_price*100} 
+ currency="INR"
+>
   <div className='card-container'>
     <div className='image-i'>
  <img  src={data.car_img} alt='hero'></img>
@@ -30,11 +56,12 @@ function Pre({data,id}) {
             <div className='km'><p>&nbsp;&nbsp;{data.speed}</p></div>
         </div></div>
         <div className='buttons'>
-            <button  className='sale'>Add</button>
+            <button  className='sale'>buy</button>
             <button  onClick={() =>navigate(`/api/car/${id}`)}  className='details'>Details</button>
         </div>
     </div>
   </div>
+  </StripeCheckout>
   </>
 }
 

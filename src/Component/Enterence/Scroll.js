@@ -6,10 +6,12 @@ import PublicIcon from '@mui/icons-material/Public';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import Pre from '../Body/Pre';
 import { useNavigate } from 'react-router-dom';
+
 function Scroll() {
+ 
   const [car, setcar] = useState([]);
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_BASE_URL}/car/allcar`)
+  useEffect(() =>{
+   fetch(`${process.env.REACT_APP_BASE_UR}/car/allcar`)
       .then((data) => data.json())
       .then((cars) => setcar(cars));
   }, []);
