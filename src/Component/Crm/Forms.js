@@ -8,7 +8,7 @@ function Forms() {
  
 
   useEffect(() => {
-      fetch(`${process.env.REACT_APP_BASE_URL}/api/mentor/${id}`)
+      fetch(`${process.env.REACT_APP_BASE_URL}/mentor/${id}`)
         .then((data) => data.json())
         .then((parts) => setpart(parts));          
     },[]);

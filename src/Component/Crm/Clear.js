@@ -5,7 +5,7 @@ import Subclear from './Subclear';
 function Clear() {
   const [mentor, setmentor] = useState([]);
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_BASE_URL}/api/mentor/allmentor`)
+    fetch(`${process.env.REACT_APP_BASE_URL}/mentor/allmentor`)
       .then((data) => data.json())
       .then((ments) => setmentor(ments));
   }, []);
