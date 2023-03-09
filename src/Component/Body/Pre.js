@@ -1,40 +1,87 @@
-import React from 'react'
+import React , { useEffect, useState }from 'react'
 import '../Body/Pre.css'
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import ShutterSpeedIcon from '@mui/icons-material/ShutterSpeed';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
-import StripeCheckout from 'react-stripe-checkout';
 import EmojiTransportationIcon from '@mui/icons-material/EmojiTransportation';
+import Test from './Test';
 function Pre({data,id}) {
+  const [loading, setLoading] = useState(false);
+  const [orderAmount, setOrderAmount] = useState(0);
+  const [orders, setOrders] = useState([]);
+
+  
+  async function fetchOrders() {
+    const { data } = await axios.get(`${process.env.REACT_APP_BASE_URL}/list-orders`);
+    setOrders(data);
+  }
+  useEffect(() => {
+    fetchOrders();
+  }, []);
+  
+  function loadRazorpay() {
+    const script = document.createElement('script');
+    script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+    script.onerror = () => {
+      alert('Razorpay SDK failed to load. Are you online?');
+    };
+    script.onload = async () => {
+      try {
+        setLoading(true);
+        const result = await axios.post(`${process.env.REACT_APP_BASE_URL}/create-order`, {
+          amount: 2000 + '00',
+        });
+        const { amount, id: order_id, currency } = result.data;
+        const {
+          data: { key: razorpayKey },
+        } = await axios.get(`${process.env.REACT_APP_BASE_URL}/get-razorpay-key`);
+
+        const options = {
+          key: razorpayKey,
+          amount: amount,
+          currency: currency,
+          name: `${data.car_name}`,
+          description: `car model:${data.car_model}`,
+          order_id: order_id,
+          handler: async function (response) {
+            const result = await axios.post(`${process.env.REACT_APP_BASE_URL}/pay-order`, {
+              amount: amount,
+              razorpayPaymentId: response.razorpay_payment_id,
+              razorpayOrderId: response.razorpay_order_id,
+              razorpaySignature: response.razorpay_signature,
+            });
+            alert(result.data.msg);
+            fetchOrders();
+          },
+          prefill: {
+            name: 'example name',
+            email: 'email@example.com',
+            contact: '111111',
+          },
+          notes: {
+            address: 'example address',
+          },
+          theme: {
+            color: '#80c0f0',
+          },
+        };
+
+        setLoading(false);
+        const paymentObject = new window.Razorpay(options);
+        paymentObject.open();
+      } catch (err) {
+        alert(err);
+        console.log(err);
+        setLoading(false);
+      }
+    };
+    document.body.appendChild(script);
+  }
    const navigate = useNavigate();
-   const makePayment=(token)=>{
-    const body={
-      token,
-      data
-    }
-    const headers={
-      "Content-Type":"application/json"
-    }
-    return fetch(`${process.env.REACT_APP_BASE_UR}/payment`,{
-      method:"POST",
-      headers,
-      body:JSON.stringify(body)
-    })
-    .then((response)=>{
-      console.log(response);
-    })
-    .catch((err)=>{
-      console.log(err);
-    })
-    }
+   
+   
   return<>
-  <StripeCheckout
-  stripeKey={process.env.PUBLIC_KEY}
-  token={makePayment}  
-name={data.car_name}
- amount={data.car_price*100} 
- currency="INR"
->
   <div className='card-container'>
     <div className='image-i'>
  <img  src={data.car_img} alt='hero'></img>
@@ -56,13 +103,13 @@ name={data.car_name}
             <div className='km'><p>&nbsp;&nbsp;{data.speed}</p></div>
         </div></div>
         <div className='buttons'>
-            <button  className='sale'>buy</button>
+            <button onClick={loadRazorpay} className='sale'>buy</button>
             <button  onClick={() =>navigate(`/api/car/${id}`)}  className='details'>Details</button>
         </div>
     </div>
-  </div>
-  </StripeCheckout>
+</div>
   </>
 }
 
 export default Pre
+

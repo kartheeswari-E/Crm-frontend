@@ -7,7 +7,7 @@ import Main from './Main';
 function List() {
   const [mentor, setmentor] = useState([]);
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_BASE_URL}/doubt/alldoubt`)
+    fetch(`${process.env.REACT_APP_BASE_URL}/api/doubt/alldoubt`)
       .then((data) => data.json())
       .then((ments) => setmentor(ments));
   }, []);

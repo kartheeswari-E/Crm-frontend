@@ -18,7 +18,7 @@ function Card() {
  
 
   useEffect(() => {
-      fetch(`${process.env.REACT_APP_BASE_URL}/car/${id}`)
+      fetch(`${process.env.REACT_APP_BASE_URL}/api/car/${id}`)
         .then((data) => data.json())
         .then((parts) => setpart(parts));          
     },[]);

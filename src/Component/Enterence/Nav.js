@@ -6,14 +6,13 @@ function Nav({data}) {
   return<>
   <div className='nav-container'>
     <div className='nav-small-container-1'>
-        <div className='logo'><span>R</span>END</div>
+        <div className='logo'><span>R</span>ENT</div>
         <div className='img-logo'>
             <AgricultureIcon className="logos" />
             </div>
     </div>
     <div className='nav-small-container-2'>
-      <div className='add'>{data.value}</div>
-        <div className='name-container'>NAME</div>
+        <div className='name-container'>kartheeswari</div>
     </div>
   </div>
   <Scroll/>

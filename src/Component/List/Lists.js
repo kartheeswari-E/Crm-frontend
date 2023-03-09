@@ -12,7 +12,7 @@ function Lists() {
  
 
   useEffect(() => {
-      fetch(`${process.env.REACT_APP_BASE_URL}/doubt/${id}`)
+      fetch(`${process.env.REACT_APP_BASE_URL}/api/doubt/${id}`)
         .then((data) => data.json())
         .then((parts) => setpart(parts));          
     },[]);

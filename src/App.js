@@ -13,6 +13,7 @@ import  Card  from './Component/Card/Card';
 import Forgot from './Component/Sign/Forgot';
 import  Password  from './Component/Sign/Password';
 import Pre from './Component/Body/Pre';
+import Test from './Component/Body/Test';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
 < Route path='/doubt' element={<Clear/>}/>
 < Route path="/api/mentor/:id" element={<Forms/>}/>
 < Route path='/list' element={<List/>}/>
+< Route path='/pay' element={<Test/>}/>
 < Route path='/pre' element={<Pre data={{value , setvalue}} />}/>
 < Route path="/api/doubt/:id" element={<Lists/>}/>
 < Route path="/api/car/:id" element={<Card/>}/>
