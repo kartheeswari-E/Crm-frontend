@@ -13,7 +13,7 @@ function Pre({data,id}) {
 
   
   async function fetchOrders() {
-    const { data } = await axios.get(`${process.env.REACT_APP_BASE_URL}/list-orders`);
+    const { data } = await axios.get(`${process.env.REACT_APP_BASE_URL_NO}/list-orders`);
     setOrders(data);
   }
   useEffect(() => {
@@ -29,13 +29,13 @@ function Pre({data,id}) {
     script.onload = async () => {
       try {
         setLoading(true);
-        const result = await axios.post(`${process.env.REACT_APP_BASE_URL}/create-order`, {
+        const result = await axios.post(`${process.env.REACT_APP_BASE_URL_NO}/create-order`, {
           amount: 2000 + '00',
         });
         const { amount, id: order_id, currency } = result.data;
         const {
           data: { key: razorpayKey },
-        } = await axios.get(`${process.env.REACT_APP_BASE_URL}/get-razorpay-key`);
+        } = await axios.get(`${process.env.REACT_APP_BASE_URL_NO}/get-razorpay-key`);
 
         const options = {
           key: razorpayKey,
@@ -45,7 +45,7 @@ function Pre({data,id}) {
           description: `car model:${data.car_model}`,
           order_id: order_id,
           handler: async function (response) {
-            const result = await axios.post(`${process.env.REACT_APP_BASE_URL}/pay-order`, {
+            const result = await axios.post(`${process.env.REACT_APP_BASE_URL_NO}/pay-order`, {
               amount: amount,
               razorpayPaymentId: response.razorpay_payment_id,
               razorpayOrderId: response.razorpay_order_id,
