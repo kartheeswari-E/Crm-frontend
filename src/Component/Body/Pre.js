@@ -5,12 +5,13 @@ import { useNavigate } from 'react-router-dom';
 import ShutterSpeedIcon from '@mui/icons-material/ShutterSpeed';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import EmojiTransportationIcon from '@mui/icons-material/EmojiTransportation';
-import Test from './Test';
+
 function Pre({data,id}) {
   const [loading, setLoading] = useState(false);
   const [orderAmount, setOrderAmount] = useState(0);
   const [orders, setOrders] = useState([]);
-
+var price=data.car_price*100;
+console.log(price);
   
   async function fetchOrders() {
     const { data } = await axios.get(`${process.env.REACT_APP_BASE_URL_NO}/list-orders`);
@@ -20,6 +21,7 @@ function Pre({data,id}) {
     fetchOrders();
   }, []);
   
+
   function loadRazorpay() {
     const script = document.createElement('script');
     script.src = 'https://checkout.razorpay.com/v1/checkout.js';
@@ -30,7 +32,7 @@ function Pre({data,id}) {
       try {
         setLoading(true);
         const result = await axios.post(`${process.env.REACT_APP_BASE_URL_NO}/create-order`, {
-          amount: 2000 + '00',
+          amount: `${price}`,
         });
         const { amount, id: order_id, currency } = result.data;
         const {

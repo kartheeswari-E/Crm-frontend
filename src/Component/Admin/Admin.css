@@ -1,0 +1,73 @@
+.cus-ques{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   margin-top: 30px;
+   font-size: 25px;
+   font-weight: 500;
+   color: green;
+}
+.nav-containers{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background: rgb(193, 224, 254);
+    padding: 15px;
+}
+.small-cns{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    align-items: center;
+    margin-left: 10px;
+}
+.view{
+    position:absolute;
+    right: 3%;
+}
+.editbn{
+    position:absolute;
+    right:15%;
+}
+.align-btn{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.sub-parts{
+    margin-top: 30px;
+    background: white;
+    height: fit-content;
+    width: 750px;
+    padding-bottom: 10px;
+    border-radius: 0 19px 0 0;
+    margin-left: 0% !important;
+}
+.suvc{
+    border: 1px solid rgb(165, 165, 165);
+    height: 85px;
+    width: 692px;
+    align-items: center;
+    border-radius: 0 0 20px 0;
+    margin-top: 30px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+.wholes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.add-movie-form{
+ 
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+        max-width: 650px;
+        margin: 30px auto;
+        gap: 20px;
+        }

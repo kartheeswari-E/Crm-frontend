@@ -13,7 +13,8 @@ import  Card  from './Component/Card/Card';
 import Forgot from './Component/Sign/Forgot';
 import  Password  from './Component/Sign/Password';
 import Pre from './Component/Body/Pre';
-import Test from './Component/Body/Test';
+import Admin from './Component/Admin/Admin';
+import Edit_query from './Component/Admin/Edit_query';
 
 
 function App() {
@@ -27,10 +28,12 @@ function App() {
 < Route path='/doubt' element={<Clear/>}/>
 < Route path="/api/mentor/:id" element={<Forms/>}/>
 < Route path='/list' element={<List/>}/>
-< Route path='/pay' element={<Test/>}/>
 < Route path='/pre' element={<Pre data={{value , setvalue}} />}/>
 < Route path="/api/doubt/:id" element={<Lists/>}/>
+
 < Route path="/api/car/:id" element={<Card/>}/>
+< Route path="/admin/api/edit/:id" element={<Edit_query/>}/>
+< Route path="/admin" element={<Admin/>}/>
 < Route path='/forgotpassword' element={<Forgot/>}/>
 <Route path='/api/reset/:id/:token' element={<Password/>} />
 </Routes>

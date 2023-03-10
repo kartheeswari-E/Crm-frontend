@@ -20,8 +20,13 @@ function Signin() {
     },
   }).then((res) => {
     if (res.status === 200) {
-      window.alert("successfull login");
+      if(data.email==="user@gmail.com"){
+window.alert("sucessfull login");
       navigate("/home");
+      } else{
+      window.alert("sucessfull login");
+      navigate("/admin");
+      }
     } else {
       console.log(res.status);
       window.alert("email or password incorrect");
