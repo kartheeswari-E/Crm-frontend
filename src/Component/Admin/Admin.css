@@ -8,7 +8,7 @@
    font-weight: 500;
    color: green;
 }
-.nav-containers{
+.nav-containers_admin{
     height: 50px;
     width: 100%;
     display: flex;
@@ -16,7 +16,7 @@
     background: rgb(193, 224, 254);
     padding: 15px;
 }
-.small-cns{
+.smalls-cns{
     position: relative;
     display: flex;
     flex-direction: row;
@@ -24,7 +24,7 @@
     align-items: center;
     margin-left: 10px;
 }
-.view{
+.view_admin{
     position:absolute;
     right: 3%;
 }
@@ -37,7 +37,7 @@
     flex-direction: row;
     gap: 20px;
 }
-.sub-parts{
+.subss-parts{
     margin-top: 30px;
     background: white;
     height: fit-content;
@@ -56,7 +56,7 @@
     margin-left: 20px;
     cursor: pointer;
 }
-.wholes{
+.wholes_admin{
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -8,10 +8,10 @@ function Custom_quer({data,id}) {
   return <>
   <div>
   <div className='suvc'>
-        <div className='small-cns'>
+        <div className='smalls-cns'>
             <div className='class-head'>{data.car_name}</div>
             <div className='align-btn'>
-            <div onClick={()=>settoggle(!toggle)} className='view'>{toggle?"hide":"view"}</div>
+            <div onClick={()=>settoggle(!toggle)} className='view_admin'>{toggle?"hide":"view"}</div>
             <div onClick={() => navigate(`api/edit/${id}`)} className='editbn'>Edit</div>
         </div></div>
         <div className='de'>Sales doubt</div>

@@ -13,7 +13,7 @@ function Admin() {
   }, []);
 
   return <>
- <div className='nav-containers'>
+ <div className='nav-containers_admin'>
     <div className='nav-small-container-1'>
         <div className='logo'><span>R</span>ENT</div>
         <div className='img-logo'>
@@ -24,8 +24,8 @@ function Admin() {
         <div className='name-container'>Admin</div>
     </div>
   </div>
-  <div className='wholes'>
-    <div className='sub-parts'>
+  <div className='wholes_admin'>
+    <div className='subss-parts'>
     {mentor.map((ments,index) => (
             <Custom_quer key={ments._id} id={ments._id} data={ments} />
 ))}
